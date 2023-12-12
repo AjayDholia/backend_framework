@@ -3,7 +3,10 @@ const argv = require("yargs").argv;
 const { mongoConnection } = require("./mongo/config");
 const cors = require("cors");
 const rootRouter = require("./src/routers/rootRouter");
+var morgan = require('morgan')
 const app = express();
+
+app.use(morgan('combined'))
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
